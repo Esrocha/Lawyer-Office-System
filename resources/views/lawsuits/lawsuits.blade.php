@@ -12,13 +12,13 @@
     <div  class="row">
         <div  class="col-md-12">
             @foreach($data as $lawsuit)
-                <div id="lawsuits-area" class="card mt-2 col-md-10">
+                <div id="lawsuits-area" class="card mt-2 col-md-10 p-3">
                     <div class="card-body">
                         <p class="card-date">  </p>
                         <h5 class="card-title"><a href="{{ route('lawsuits.show', $lawsuit->id)}}">{{$lawsuit->number}}</a> </h5>
                         <hr>
-                        <span class="card-client"> Autor:</span>
-                        <span class="card-client"> Réu: Machado de Assis </span>
+                        <span> Autor:</span>
+                        <span> Réu: Machado de Assis </span>
                     </div>
                 </div>
             @endforeach

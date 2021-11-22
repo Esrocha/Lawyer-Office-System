@@ -15,15 +15,18 @@ class ClientController extends Controller
        return view('clients.clients', compact('clients'));
     }
 
-    public function show() {
+    public function show($id) {
+        $client = Client::where('id', $id)->first();
+        $lawsuitsOfClient = $client->lawsuits;
 
+        return view('clients.show-client', compact('client', 'lawsuitsOfClient'));
     }
 
     public function create() {
         return view('clients.create-client');
     }
 
-    public function store() {
+    public function store(Request $request) {
         $client = new client;
 
         $client = new client;

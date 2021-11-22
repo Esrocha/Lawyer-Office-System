@@ -6,10 +6,27 @@
     padding: 0;
 }
 /*HEADER*/
-
+.navbar {
+    margin-bottom: 30px;
+}
 /*BODY*/
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: rgb(228, 227, 227);
+  
+}
+
+.msg{
+    color: green;
+    font-size: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    min-height: 90vh;
 }
 
 
@@ -21,7 +38,7 @@ body {
 
 #include-client {
     background-color: rgb(228, 227, 227);
-   
+
 
 }
 
@@ -29,14 +46,14 @@ body {
 
 #include-lawyer {
     background-color: rgb(228, 227, 227);
-   
+
 
 }
 
 /*LAWSUIT FORM INCLUSION*/
 #include-lawsuit {
     background-color: rgb(228, 227, 227);
-   
+
 }
 
 .card {
@@ -47,8 +64,9 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
+    height: 60px;
+    color: #ffff;
     background-color: gray;
-    padding-top: 10px;
-    margin-bottom: 0;
+    padding: 10px;
+    margin-top: 20px;
 }

@@ -40,6 +40,8 @@ Route::post('/incluir-advogado', [LawyerController::class, 'store'])->name('lawy
 Route::get('/clientes', [ClientController::class, 'index'])->name('clients.index');
 Route::get('/incluir-cliente', [ClientController::class, 'create'])->name('clients.create');
 Route::post('/incluir-cliente', [ClientController::class, 'store'])->name('clients.store');
+Route::get('/cliente/{id}', [ClientController::class, 'show'])->name('clients.show');
+
 
 
 

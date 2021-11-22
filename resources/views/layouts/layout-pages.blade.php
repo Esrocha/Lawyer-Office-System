@@ -57,7 +57,7 @@
     <main>
         <div class="container-fluid">
             <div class="row">
-                <div class="teste">
+                <div class="msg">
                     @if(session('msg'))
                             <p class="msg">{{ session('msg') }}</p>
                     @endif
