@@ -12,11 +12,31 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+
+
 /*FORMS*/
+
+
+/*CLIENT FORM INCLUSION*/
+
+#include-client {
+    background-color: rgb(228, 227, 227);
+   
+
+}
+
+/*LAWYER FORM INCLUSION*/
+
+#include-lawyer {
+    background-color: rgb(228, 227, 227);
+   
+
+}
 
 /*LAWSUIT FORM INCLUSION*/
 #include-lawsuit {
     background-color: rgb(228, 227, 227);
+   
 }
 
 .card {

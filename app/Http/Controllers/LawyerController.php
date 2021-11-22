@@ -23,24 +23,25 @@ class LawyerController extends Controller
         return view('lawyers.create-lawyer');
     }
 
-    public function store() {
+    public function store(Request $request) {
         $lawyer = new Lawyer;
-
-        $lawyer->name = 'ze legal';
-        $lawyer->CPF = '4889498373';
-        $lawyer->OAB =   'RJ0057';
-        $lawyer->street = 'Rua quase';
-        $lawyer->number = '1';
-        $lawyer->complement = '';
-        $lawyer->district = 'Fonseca';
-        $lawyer->state = 'RJ';
-        $lawyer->CEP = '24567890';
+        //dd($request);
+        $lawyer->name = $request->name;
+        $lawyer->cpf = $request->cpf;
+        $lawyer->oab =   $request->oab;
+        $lawyer->street = $request->street;
+        $lawyer->number = $request->number;
+        $lawyer->complement = $request->complement;
+        $lawyer->district = $request->district;
+        $lawyer->city = $request->city;
+        $lawyer->state = $request->state;
+        $lawyer->cep = $request->cep;
         $lawyer->user_id = '1';
         
 
         $lawyer->save();
 
-        return redirect('/processos')->with('msg', 'advogado incluido com sucesso!');
+        return redirect('/advogados')->with('msg', 'Advogado incluido com sucesso!');
     }
 
     public function edit() {

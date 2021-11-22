@@ -1,23 +1,23 @@
 @extends('layouts.layout-pages')
 
-@section('title', 'Advogados')
+@section('title', 'Clientes')
 
 @section('content')
 
 <div  class="container">
-    <form action=" {{route('lawyers.create')}} "  method="get">
-        <button type="submit" class="btn btn-success" >+ Incluir Advogado</button>
+    <form action=" {{route('clients.create')}} "  method="get">
+        <button type="submit" class="btn btn-success" >+ Incluir Cliente</button>
     </form>
-    <h1>Advogados:</h1>
+    <h1>Clientes:</h1>
     <div  class="row">
         <div  class="col-md-12">
-            @foreach($lawyers as $lawyer)
+            @foreach($clients as $client)
                 <div id="lawsuits-area" class="card mt-2 col-md-10">
                     <div class="card-body">
                         <p class="card-date">  </p>
-                        <h5 class="card-title"><a href="">Dr. {{$lawyer->name}}</a> </h5>
+                        <h5 class="card-title"><a href="">{{$client->name}}</a> </h5>
                         <hr>
-                        <span class="card-client"> OAB: {{$lawyer->oab}} </span>
+                        <span class="card-client"> CPF: {{$client->cpf}} </span>
                         
                     </div>
                 </div>

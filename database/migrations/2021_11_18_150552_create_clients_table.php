@@ -23,7 +23,7 @@ class CreateClientsTable extends Migration
             $table->string('district', 30);
             $table->string('city', 30);
             $table->string('state', 20);
-            $table->string('CEP', 8);
+            $table->string('cep', 8);
             $table->foreignId('user_id');
             $table->timestamps();
         });

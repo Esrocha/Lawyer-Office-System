@@ -10,7 +10,9 @@ class ClientController extends Controller
 {
     
     public function index() {
-       
+        $clients = Client::all();
+
+       return view('clients.clients', compact('clients'));
     }
 
     public function show() {
@@ -18,26 +20,29 @@ class ClientController extends Controller
     }
 
     public function create() {
-
+        return view('clients.create-client');
     }
 
     public function store() {
         $client = new client;
 
-        $client->name = 'patricio';
-        $client->CPF = '8599990497';
-        $client->street = 'Rua clara';
-        $client->number = '1';
-        $client->complement = '';
-        $client->district = 'icarai';
-        $client->state = 'RJ';
-        $client->CEP = '24567890';
+        $client = new client;
+        //dd($request);
+        $client->name = $request->name;
+        $client->cpf = $request->cpf;
+        $client->street = $request->street;
+        $client->number = $request->number;
+        $client->complement = $request->complement;
+        $client->district = $request->district;
+        $client->city = $request->city;
+        $client->state = $request->state;
+        $client->cep = $request->cep;
         $client->user_id = '1';
         
-
         $client->save();
 
-        return redirect('/processos')->with('msg', 'advogado incluido com sucesso!');
+        return redirect('/clientes')->with('msg', 'Cliente incluido com sucesso!');
+        
     }
 
     public function edit() {

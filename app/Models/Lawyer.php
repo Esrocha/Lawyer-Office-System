@@ -14,14 +14,14 @@ class Lawyer extends Model
     protected $fillable = [
         'name',
         'cpf',
-        'OAB',
+        'oab',
         'street',
         'number',
         'complement',
         'district',
         'city',
         'state',
-        'CEP'
+        'cep'
     ];
 
     

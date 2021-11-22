@@ -24,7 +24,7 @@
                     <a href=" {{route('lawyers.index')}} ">
                         <p>Advogados</p>
                     </a>
-                    <a href="">
+                    <a href="{{route('clients.index')}}">
                         <p>Clientes</p>
                     </a>
                     <a href="">

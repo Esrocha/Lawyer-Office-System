@@ -1,14 +1,14 @@
 @extends('layouts.layout-pages')
 
-@section('title', 'Novo Advogado')
+@section('title', 'Novo Cliente')
 
 @section('content')
 
-<div id="include-lawyer" class="container-fluid p-3">
+<div id="include-client" class="container-fluid p-3">
     <div class="row">
-        <h4>Formulário de inclusão de advogados:</h4>
+        <h4>Formulário de inclusão de cliente:</h4>
         <div class="col-md-10 offset-1 p-4">
-            <form action="  {{ route('lawyers.store') }} " method="POST">
+            <form action="  {{ route('clients.store') }} " method="POST">
                 @csrf
                 <div class="form-group col-md-8">
                     <label for="name">Nome</label>
@@ -17,10 +17,6 @@
                 <div class="form-group col-md-3" max >
                     <label for="cpf">CPF</label>
                     <input type="text" class="form-control" name="cpf" id="cpf" maxlength="11" >
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="oab">OAB</label>
-                    <input type="text" class="form-control" name="oab" id="oab" maxlength="8">
                 </div>
                 <div class="inpuut-group">
                     <div class="form-group col-md-8">
