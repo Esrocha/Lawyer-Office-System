@@ -21,7 +21,11 @@ class CreateLawsuitsTable extends Migration
             $table->integer('body');
             $table->integer('court');
             $table->integer('forum');
+
             $table->date('date');
+
+            $table->string('defendant');
+            $table->string('clientName');
 
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients');

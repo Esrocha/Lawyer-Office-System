@@ -21,31 +21,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- Template Main CSS File -->
-    <link href="/css/layout-home-styles.css" rel="stylesheet">
+    <link href="/css/layout-pages-style.css" rel="stylesheet">
 
 </head>
 
 <body>
     <!-- ======= Header ======= -->
     <header id="header" class="align-items-center">
-        <!--Banner-->
-        <div id="banner" class=" no-repeat">
-            <div class="container h-100 text-white ">
-                <div class="row h-100">
-                    <div class="col-6 offset-1 align-self-center">
 
-                        <h1 class="mb-5">Conulta e Organização de Processos.</h1>
-                        <p>Plataforma para consulta e organização de processos judiciais em escritórios de advocacia.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!--Navbar-->
         <div class="container-fluid">
             <div class="row">
-                <nav class="navbar navbar-expand-lg navbar-light ">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
-                      <a class="navbar-brand" href="#"></a>
+                      <a class="navbar-brand" href=" {{route('lawsuits.home')}} ">Home</a>
                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
@@ -64,6 +53,7 @@
             </div>
         </div>
     </header><!-- End Header -->
+    <!--Main-->
     <main>
         <div class="container-fluid">
             <div class="row">
@@ -73,7 +63,9 @@
                     @endif
                 </div>
             </div>
-            @yield('content')
+            <div>
+                @yield('content')
+            </div>
         </div>
     </main>
 

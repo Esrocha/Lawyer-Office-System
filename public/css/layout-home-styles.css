@@ -2,10 +2,12 @@
 # General
 --------------------------------------------------------------*/
 body {
-    background: #fdfbfb;
+    background: #dfdddd;
     color: #666666;
     font-family: "Open Sans", sans-serif;
-    
+    margin: 0;
+    padding: 0;
+
 }
 
 a {
@@ -15,6 +17,10 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Roboto", sans-serif;
+}
+
+.container {
+    overflow: none;
 }
 
 /*Header*/
@@ -29,24 +35,28 @@ h1, h2, h3, h4, h5, h6 {
     padding: 30px;
 }
 
+.navbar {
+    background-color: #dfdddd;
+}
+
 /*
 Options section home-page
 */
 #options {
-    
+
     height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 20px;
     margin-top: 10px;
 }
 
 #options a{
     background: rgb(170,172,172);
     background: linear-gradient(90deg, rgba(170,172,172,1) 1%, rgba(2,0,36,0.6530987394957983) 83%);
-    
-    border: 1px solid #f5c5c5;
+
+    border: 1px solid #7a7979;
     border-radius: 5px;
 
     width: 20%;
@@ -59,7 +69,7 @@ Options section home-page
 #options p {
     color:#fff;
     font-size: large;
-    font-weight: bold;
+    font-weight: 400;
     padding-top: 25px;
     align-items: center;
     text-align: center;
@@ -69,8 +79,8 @@ Options section home-page
 footer {
     background-color: #666666;
     color: #fff;
-    height: 10vh;
-    display: block;
+    height: 35px;
+    display: flex;
     align-items: center;
     justify-content: center;
 }

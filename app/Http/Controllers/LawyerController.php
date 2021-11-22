@@ -10,7 +10,9 @@ class LawyerController extends Controller
 {
     
     public function index() {
-       
+       $lawyers = Lawyer::all();
+
+       return view('lawyers.lawyers', compact('lawyers'));
     }
 
     public function show() {
@@ -18,7 +20,7 @@ class LawyerController extends Controller
     }
 
     public function create() {
-
+        return view('lawyers.create-lawyer');
     }
 
     public function store() {

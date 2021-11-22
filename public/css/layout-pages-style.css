@@ -1,0 +1,34 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+}
+/*HEADER*/
+
+/*BODY*/
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/*FORMS*/
+
+/*LAWSUIT FORM INCLUSION*/
+#include-lawsuit {
+    background-color: rgb(228, 227, 227);
+}
+
+.card {
+    border-radius: 30px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    background-color: gray;
+    padding-top: 10px;
+    margin-bottom: 0;
+}

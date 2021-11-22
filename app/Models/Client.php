@@ -19,11 +19,12 @@ class Client extends Model
         'number',
         'complement',
         'district',
+        'city',
         'state',
         'CEP'
     ];
 
-    
+
     public function lawsuits()
     {
         return $this->hasMany(Lawsuit::class);

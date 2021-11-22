@@ -4,15 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lawsuit;
+use App\Models\Lawyer;
 use App\Models\Client;
 
 
 class LawsuitController extends Controller
 {
     public function index() {
-        $data = Lawsuit::orderBy('date', 'desc')->get();
+       $data = Lawsuit::all();
+       
+        
+        
+        
+       
+        
 
-        return view('lawsuits.lawsuits', compact('data') );
+        return view('lawsuits.lawsuits', compact('data'),  );
     }
 
     public function show($id) {
@@ -29,7 +36,7 @@ class LawsuitController extends Controller
 
     public function create() {
 
-        return view('lawsuit.create-lawsuit');
+        return view('lawsuits.create-lawsuit');
     }
 
     public function store() {
@@ -43,6 +50,8 @@ class LawsuitController extends Controller
         $lawsuit->court = '77';
         $lawsuit->forum = '5454';
         $lawsuit->date = '2021-07-22';
+        $lawsuit->deffendant = 'sujeito tal';
+        $lawsuit->clientName = '2021-07-22';
         $lawsuit->client_id = '2';
         $lawsuit->lawyer_id = '1';
         $lawsuit->indemnity = '7000.00';

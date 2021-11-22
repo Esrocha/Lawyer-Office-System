@@ -22,14 +22,17 @@ use App\Http\Controllers\LawyerController;
 Route::get('/processos', [LawsuitController::class, 'index'])->name('lawsuits.index');
 Route::get('/processo/{id}', [LawsuitController::class, 'show'])->name('lawsuits.show');
 Route::get('/incluir-processo', [LawsuitController::class, 'create'])->name('lawsuits.create');
-Route::get('/incluir-processo', [LawsuitController::class, 'store'])->name('lawsuits.store');
+Route::post('/incluir-processo', [LawsuitController::class, 'store'])->name('lawsuits.store');
 Route::get('/editar/{id}', [LawsuitController::class, 'edit'])->name('lawsuits.edit');
 //Route::get('/client-lawsuit', [LawsuitController::class, 'clientLawsuit']);
 
 /**
  * Lawyers Routes
  */
-Route::get('/incluir-advogado', [LawyerController::class, 'store'])->name('lawyer.store');
+Route::get('/advogados', [LawyerController::class, 'index'])->name('lawyers.index');
+Route::get('/incluir-advogado', [LawyerController::class, 'create'])->name('lawyers.create');
+Route::post('/incluir-advogado', [LawyerController::class, 'store'])->name('lawyers.store');
+
 
 /**
  * Clients Routes
@@ -40,4 +43,4 @@ Route::get('/incluir-cliente', [ClientController::class, 'store'])->name('client
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('lawsuits.home');

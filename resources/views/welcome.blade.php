@@ -21,7 +21,7 @@
                     <a href="{{route('lawsuits.index')}}">
                         <p>Processos</p>
                     </a>
-                    <a href="">
+                    <a href=" {{route('lawyers.index')}} ">
                         <p>Advogados</p>
                     </a>
                     <a href="">

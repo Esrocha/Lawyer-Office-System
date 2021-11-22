@@ -15,13 +15,15 @@ class Lawsuit extends Model
 
 
     protected $fillable = [
-        'lawsuit',
+        'number',
         'digit',
         'year',
         'body',
         'court',
         'forum',
         'date',
+        'defendant',
+        'clientName',
         'client_id',
         'Lawyer_id',
         'indemnity',

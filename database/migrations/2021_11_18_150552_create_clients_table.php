@@ -16,11 +16,12 @@ class CreateClientsTable extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
-            $table->string('CPF', 11)->unique;
+            $table->string('cpf', 11)->unique;
             $table->string('street', 100);
             $table->string('number', 10);
             $table->string('complement', 30);
             $table->string('district', 30);
+            $table->string('city', 30);
             $table->string('state', 20);
             $table->string('CEP', 8);
             $table->foreignId('user_id');
