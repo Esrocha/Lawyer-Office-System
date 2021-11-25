@@ -41,7 +41,7 @@ class Lawsuit extends Model
     
     public function clients()
     {
-        return $this->belongsToMany(Client::class, 'client_lawsuit', 'lawsuit_id', 'client_id');
+        return $this->belongsToMany(Client::class);
     }
     
     

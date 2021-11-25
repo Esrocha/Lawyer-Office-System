@@ -48,15 +48,23 @@ class ClientController extends Controller
         
     }
 
-    public function edit() {
+    public function edit($id) {
+        $client = Client::where('id', $id)->first();
 
+        return view('clients.edit-client', compact('client'));
     }
 
-    public function update() {
+    public function update(Request $request) {
+        $client = $request->all();
 
+        Client::findOrFail($request->id)->update($client);
+
+        return redirect()->route('clients.show', $request->id)->with('msg', 'Cadastro atualizado com sucesso!');
     }
 
-    public function destroy() {
+    public function destroy($id) {
+        Client::findOrFail($id)->delete();
 
+        return redirect()->route('clients.index')->with('msg', 'Cadastro excluido com sucesso!');
     }
 }

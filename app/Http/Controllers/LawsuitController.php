@@ -11,70 +11,66 @@ use App\Models\Client;
 class LawsuitController extends Controller
 {
     public function index() {
-       $data = Lawsuit::all();
-       
-        
-        
-        
-       
-        
+       $lawsuits = Lawsuit::all();
 
-        return view('lawsuits.lawsuits', compact('data'),  );
+
+
+        return view('lawsuits.lawsuits', compact('lawsuits'),  );
     }
 
     public function show($id) {
 
-        $lawsuit = Lawsuit::find($id);
+        $lawsuit = Lawsuit::findOrFail($id);
 
-        $client = $lawsuit->clients;
-        //dd($client);
-        $lawyer = $lawsuit->lawyer;
+        $clients = $lawsuit->clients;
+        $lawyers = $lawsuit->lawyer;
+       
 
 
-        return view('lawsuits.show', compact('lawsuit', 'client', 'lawyer'));
+        return view('lawsuits.show', compact('lawsuit', 'clients', 'lawyers'));
     }
 
     public function create() {
+        //Data of lawyers to use in select field form
+        $lawyers = Lawyer::all();
 
-        return view('lawsuits.create-lawsuit');
+        return view('lawsuits.create-lawsuit', compact('lawyers'));
     }
 
-    public function store() {
+    public function store(Request $request) {
         $lawsuit = new Lawsuit;
 
-        //insertion on object.
-        $lawsuit->number = '7896512';
-        $lawsuit->digit =   '66';
-        $lawsuit->year = '2021';
-        $lawsuit->body = '6';
-        $lawsuit->court = '77';
-        $lawsuit->forum = '5454';
-        $lawsuit->date = '2021-07-22';
-        $lawsuit->deffendant = 'sujeito tal';
-        $lawsuit->clientName = '2021-07-22';
-        $lawsuit->client_id = '2';
-        $lawsuit->lawyer_id = '1';
-        $lawsuit->indemnity = '7000.00';
-        $lawsuit->initial_page = 'testando exiição nome do cliente';
+        $client = Client::where('cpf', $request->cpf)->first();
+
+        
+        $lawsuit->number = $request->number;
+        $lawsuit->digit =   $request->digit;
+        $lawsuit->year = $request->year;
+        $lawsuit->body = $request->body;
+        $lawsuit->court = $request->court;
+        $lawsuit->forum = $request->forum;
+        $lawsuit->date = $request->date;
+        $lawsuit->defendant = $request->defendant;
+        //inser data of client with the data of object $client.
+        $lawsuit->clientName = $client->name;
+        $lawsuit->client_id = $client->id;
+
+        //inser forein key of lawyer with the data of object $lawyer.
+        $lawsuit->lawyer_id = $request->lawyer_id;
+
+        $lawsuit->indemnity = $request->indemnity;
+        $lawsuit->initial_page = $request->initial;
         $lawsuit->user_id = '1';
         $lawsuit->lawsuitpdf = '11111';
 
         $lawsuit->save();
 
         //Create relationship in pivot table
-        $lawsuit = Lawsuit::where('number', 7896512)->first();
+        $lawsuit = Lawsuit::where('number', $request->number)->first();
         $client = $lawsuit->client_id;
         $lawsuit->clients()->attach($client);
         
         return redirect('/processos')->with('msg', 'Processo incluido com sucesso!');
-    }
-
-    public function clientLawsuit() {
-        $form = ['2'];
-        $lawsuit = Lawsuit::where('id', 11)->first();
-        $lawsuit->clients()->attach($form);
-
-        return redirect('/processos');
     }
 
     public function edit() {

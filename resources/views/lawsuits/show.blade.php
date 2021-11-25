@@ -9,11 +9,12 @@
 <p>{{$lawsuit->number}}.{{$lawsuit->digit}}.{{$lawsuit->year}}.{{$lawsuit->body}}</p>
 
 
-@foreach($client as $cliente)
+@foreach($clients as $cliente)
 <p> {{$cliente->name}} </p>
 @endforeach
 
-<p>Advoado: {{$lawyer->name}} OAB: {{$lawyer->OAB}} </p>
+{{$lawyers->
+    name}}
 
 <p>Inicial: </p>
 <p>{{$lawsuit->initial_page}} </p>

@@ -60,10 +60,10 @@
                 <div class="form-group col-md-6">
                     <label class="mt-2" for="lawyer">Advogado</label>
                     <select class="form-select" name="lawyer_id" id="lawyer_id" >
-                        <option selected></option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected>Selecione um Advogado</option>
+                        @foreach($lawyers as $lawyer)
+                        <option value=" {{$lawyer->id}} "> {{$lawyer->name}} </option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group col-md-6">

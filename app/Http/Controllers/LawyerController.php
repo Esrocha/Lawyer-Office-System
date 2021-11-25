@@ -15,8 +15,11 @@ class LawyerController extends Controller
        return view('lawyers.lawyers', compact('lawyers'));
     }
 
-    public function show() {
+    public function show($id) {
+        $lawyer = Lawyer::where('id', $id)->first();
+        $lawsuitsOfLawyer = $lawyer->lawsuits;
 
+        return view('lawyers.show-lawyer', compact('lawyer', 'lawsuitsOfLawyer'));
     }
 
     public function create() {
@@ -44,15 +47,23 @@ class LawyerController extends Controller
         return redirect('/advogados')->with('msg', 'Advogado incluido com sucesso!');
     }
 
-    public function edit() {
+    public function edit($id) {
+        $lawyer = Lawyer::where('id', $id)->first();
 
+        return view('lawyers.edit-lawyer', compact('lawyer'));
     }
 
-    public function update() {
+    public function update(Request $request) {
+        $lawyer = $request->all();
 
+        Lawyer::findOrFail($request->id)->update($lawyer);
+
+        return redirect()->route('lawyers.show', $request->id)->with('msg', 'Cadastro atualizado com sucesso!');
     }
 
-    public function destroy() {
+    public function destroy($id) {
+        Lawyer::findOrFail($id)->delete();
 
+        return redirect()->route('lawyers.index')->with('msg', 'Cadastro excluido com sucesso!');
     }
 }

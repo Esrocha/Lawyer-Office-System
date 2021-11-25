@@ -27,6 +27,9 @@ class Lawyer extends Model
     
     public function lawsuits()
     {
-        return $this->belongsToMany(Lawsuits::class);
+        return $this->belongsToMany(Lawsuit::class);
     }
+    
+    
+    
 }

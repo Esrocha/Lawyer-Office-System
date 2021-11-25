@@ -6,12 +6,15 @@
 
 <div  class="container">
     <form action=" {{route('clients.create')}} "  method="get">
-        <button type="submit" class="btn btn-success" >+ Incluir Cliente</button>
+        <button type="submit" class="btn btn-success" >+ Cadastrar Cliente</button>
     </form>
-    <h1>Clientes:</h1>
+    <h3>Clientes:</h3>
     <div  class="row">
         <div  class="col-md-12">
-            @foreach($clients as $client)
+            @if(count($clients) == 0)
+                <p>Não há clientes cadastrados. <a href=" {{route('clients.create')}} ">Cadastrar clientes</a></p>
+            @else 
+                @foreach($clients as $client)
                 <div id="lawsuits-area" class="card mt-2 col-md-10">
                     <div class="card-body">
                         <p class="card-date">  </p>
@@ -21,7 +24,9 @@
                         
                     </div>
                 </div>
-            @endforeach
+                @endforeach
+            @endif
+           
         </div>
     </div>
 </div>
