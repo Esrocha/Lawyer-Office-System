@@ -17,7 +17,7 @@
                 </p>
                 <p>
                     <strong>Endereço:</strong> {{ $lawyer->street }}, {{ $lawyer->number }} -
-                        {{ $lawyer->district }}, {{ $lawyer->city }} - {{ $lawyer->state }} 
+                        {{ $lawyer->district }}, {{ $lawyer->city }} - {{ $lawyer->state }}
                 </p>
                 <div class="col-md-3 d-flex">
                     <span><a class="btn btn-secondary m-1" href=" {{route('lawyers.edit', $lawyer->id)}} "><i class="bi bi-pencil" ></i> editar</a></span>
@@ -52,19 +52,19 @@
             </div>
             <hr>
             <h5>Processos do Advogado:</h5>
-            <div class="col-md-12 p-3" id="lawsuitsoflawyer">
+            <div class="col-md-12 p-3" id="lawsuits">
                 <div>
-                    @if(count($lawsuitsOfLawyer) == 0)
+                    @if(count($lawsuits) == 0)
                         <p>Este advogado não tem processos.</p>
                     @else
-                        @foreach($lawsuitsOfLawyer as $lawsuit)
+                        @foreach($lawsuits as $lawsuit)
                             <div id="lawsuits-area" class="card mt-2 col-md-10 p-3">
                                 <div class="card-body">
-                                    <p class="card-date"> {{$lawsuit->date}} </p>
-                                    <h5 class="card-title"><a href="{{ route('lawsuits.show', $lawsuit->id) }}">{{ $lawsuit->number }}</a></h5>
+                                    <h5 class="card-title"><a href="{{ route('lawsuits.show', $lawsuit->id) }}">{{ $lawsuit->number }}.{{$lawsuit->digit}}.{{$lawsuit->year}}.{{$lawsuit->body}}.{{$lawsuit->forum}}.{{date('d.m.Y', strtotime($lawsuit->date))}}</a></h5>
+                                    <p class="card-date"> <strong>Data de cadastro:</strong>  {{date("d/m/Y", strtotime($lawsuit->created_at))}} </p>
                                     <hr>
-                                    <span> Réu: {{ $lawsuit->client }} </span>
-                                    <span> Réu: {{ $lawsuit->defendant }} </span>
+                                    <span> <strong>Autor:</strong>  {{ $lawsuit->client_name }} </span>
+                                    <span> <strong>Réu:</strong>  {{ $lawsuit->defendant }} </span>
                                 </div>
                             </div>
                         @endforeach

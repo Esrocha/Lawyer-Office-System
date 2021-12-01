@@ -16,8 +16,8 @@
                      <strong>CPF:</strong> {{ $client->cpf }} 
                 </p>
                 <p>
-                    <strong>Endereço:</strong> {{ $client->street }}, {{ $client->number }} -
-                        {{ $client->district }}, {{ $client->city }} - {{ $client->state }} 
+                    <strong>Endereço:</strong> {{ $client->street }}, {{ $client->number }} {{$client->complement ?? ""}}.
+                        {{ $client->district }}, {{ $client->city }} - {{ $client->state }} <strong>CEP:</strong> {{$client->cep}}
                 </p>
                 <div class="col-md-3 d-flex">
                     <span><a class="btn btn-secondary m-1" href=" {{route('clients.edit', $client->id)}} "><i class="bi bi-pencil" ></i> editar</a></span>
@@ -60,10 +60,10 @@
                         @foreach($lawsuitsOfClient as $lawsuit)
                             <div id="lawsuits-area" class="card mt-2 col-md-10 p-3">
                                 <div class="card-body">
-                                    <p class="card-date"> {{$lawsuit->date}} </p>
-                                    <h5 class="card-title"><a href="{{ route('lawsuits.show', $lawsuit->id) }}">{{ $lawsuit->number }}</a></h5>
+                                    <h5 class="card-title"><a href="{{ route('lawsuits.show', $lawsuit->id) }}">{{ $lawsuit->number }}.{{$lawsuit->digit}}.{{$lawsuit->year}}.{{$lawsuit->body}}.{{$lawsuit->forum}}.{{date('d.m.Y', strtotime($lawsuit->date))}}</a></h5>
+                                    <p class="card-date"> <strong>Data de cadastro:</strong>  {{date("d/m/Y", strtotime($lawsuit->created_at))}} </p>
                                     <hr>
-                                    <span> Réu: {{ $lawsuit->defendant }} </span>
+                                    <span> <strong>Réu:</strong>  {{ $lawsuit->defendant }} </span>
                                 </div>
                             </div>
                         @endforeach

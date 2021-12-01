@@ -59,7 +59,7 @@
             <div class="row">
                 <div class="msg">
                     @if(session('msg'))
-                            <p class="msg">{{ session('msg') }}</p>
+                            <p class="alert alert-success msg">{{ session('msg') }}</p>
                     @endif
                 </div>
             </div>

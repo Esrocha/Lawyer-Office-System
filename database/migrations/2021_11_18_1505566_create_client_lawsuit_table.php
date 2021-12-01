@@ -16,10 +16,10 @@ class CreateClientLawsuitTable extends Migration
         Schema::create('client_lawsuit', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('client_id');
-            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             
             $table->unsignedBigInteger('lawsuit_id');
-            $table->foreign('lawsuit_id')->references('id')->on('lawsuits');
+            $table->foreign('lawsuit_id')->references('id')->on('lawsuits')->onDelete('cascade');
 
         });
     }

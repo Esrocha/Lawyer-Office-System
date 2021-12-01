@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
+
 class Lawsuit extends Model
 {
     use HasFactory;
@@ -35,15 +36,15 @@ class Lawsuit extends Model
 
 
     public function lawyer() {
-        return $this->hasOne(Lawyer::class, 'id', 'lawyer_id');
+        return $this->belongsToMany(Lawyer::class);
     }
 
-    
+
     public function clients()
     {
         return $this->belongsToMany(Client::class);
     }
-    
-    
+
+
 
 }

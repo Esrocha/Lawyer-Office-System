@@ -20,11 +20,13 @@ use App\Http\Controllers\LawyerController;
  * Lawsuits Routes
  */
 Route::get('/processos', [LawsuitController::class, 'index'])->name('lawsuits.index');
-Route::get('/processo/{id}', [LawsuitController::class, 'show'])->name('lawsuits.show');
 Route::get('/incluir-processo', [LawsuitController::class, 'create'])->name('lawsuits.create');
+Route::get('/processo/{id}', [LawsuitController::class, 'show'])->name('lawsuits.show');
 Route::post('/incluir-processo', [LawsuitController::class, 'store'])->name('lawsuits.store');
 Route::get('/editar-processo/{id}', [LawsuitController::class, 'edit'])->name('lawsuits.edit');
 Route::put('/editar-processo/{id}', [LawsuitController::class, 'update'])->name('lawsuits.update');
+Route::delete('/apagar-processo/{id}', [LawsuitController::class, 'destroy'])->name('lawsuits.destroy');
+
 
 
 /**

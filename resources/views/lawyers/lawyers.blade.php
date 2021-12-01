@@ -5,12 +5,12 @@
 @section('content')
 
 <div  class="container">
-    <form action=" {{route('lawyers.create')}} "  method="get">
-        <button type="submit" class="btn btn-success" >+ Cadastrar Advogado</button>
-    </form>
-    <h1>Advogados:</h1>
     <div  class="row">
-        <div  class="col-md-12">
+        <form action=" {{route('lawyers.create')}} "  method="get">
+            <button type="submit" class="btn btn-primary" >+ Cadastrar Advogado</button>
+        </form>
+        <h1>Advogados:</h1>
+        <div  class="  col-md-12">
             @if(count($lawyers) == 0)
                 <p>Não há advogados cadastrados. <a href=" {{route('lawyers.create')}} ">Cadastrar advogado</a></p>
             @else 

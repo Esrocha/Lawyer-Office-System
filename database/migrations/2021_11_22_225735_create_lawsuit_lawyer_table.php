@@ -16,11 +16,11 @@ class CreateLawsuitLawyerTable extends Migration
         Schema::create('lawsuit_lawyer', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('lawsuit_id');
-            $table->foreign('lawsuit_id')->references('id')->on('lawsuits');
-            
+            $table->foreign('lawsuit_id')->references('id')->on('lawsuits')->onDelete('cascade');
+
             $table->unsignedBigInteger('lawyer_id');
-            $table->foreign('lawyer_id')->references('id')->on('lawyers');
-            
+            $table->foreign('lawyer_id')->references('id')->on('lawyers')->onDelete('cascade');
+
         });
     }
 

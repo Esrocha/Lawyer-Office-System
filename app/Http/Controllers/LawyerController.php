@@ -8,7 +8,7 @@ use App\Models\Lawyer;
 
 class LawyerController extends Controller
 {
-    
+
     public function index() {
        $lawyers = Lawyer::all();
 
@@ -17,9 +17,10 @@ class LawyerController extends Controller
 
     public function show($id) {
         $lawyer = Lawyer::where('id', $id)->first();
-        $lawsuitsOfLawyer = $lawyer->lawsuits;
+        $lawsuits = $lawyer->lawsuits;
+        //dd($lawsuits);
 
-        return view('lawyers.show-lawyer', compact('lawyer', 'lawsuitsOfLawyer'));
+        return view('lawyers.show-lawyer', compact('lawyer', 'lawsuits'));
     }
 
     public function create() {
@@ -27,6 +28,7 @@ class LawyerController extends Controller
     }
 
     public function store(Request $request) {
+
         $lawyer = new Lawyer;
         //dd($request);
         $lawyer->name = $request->name;
@@ -40,11 +42,11 @@ class LawyerController extends Controller
         $lawyer->state = $request->state;
         $lawyer->cep = $request->cep;
         $lawyer->user_id = '1';
-        
+
 
         $lawyer->save();
 
-        return redirect('/advogados')->with('msg', 'Advogado incluido com sucesso!');
+        return redirect('/advogados')->with('msg', 'Advogado cadastrado com sucesso!');
     }
 
     public function edit($id) {
